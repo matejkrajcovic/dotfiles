@@ -1,0 +1,8 @@
+"pamixer --decrease 5"
+    Mod2 + XF86AudioLowerVolume
+
+"pamixer --increase 5"
+    Mod2 + XF86AudioRaiseVolume
+
+"pamixer --toggle-mute"
+    Mod2 + XF86AudioMute
