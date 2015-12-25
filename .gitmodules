@@ -1,6 +1,0 @@
-[submodule "awesome/.config/awesome/vicious"]
-	path = awesome/.config/awesome/vicious
-	url = http://git.sysphere.org/vicious
-[submodule "awesome/.config/awesome/themes/awesome-solarized"]
-	path = awesome/.config/awesome/themes/awesome-solarized
-	url = https://github.com/cycojesus/awesome-solarized.git
