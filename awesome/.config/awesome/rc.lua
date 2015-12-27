@@ -140,7 +140,7 @@ separator:set_text("|")
 
 -- Create a volume widget
 volumewidget = wibox.widget.textbox()
-vicious.register(volumewidget, vicious.widgets.volume, "VOL: $1%", 1, "Master -c 1")
+vicious.register(volumewidget, vicious.widgets.volume, "VOL: $1%", 1, "Master")
 
 -- Create a wifi widget
 wifiwidget = wibox.widget.textbox()
