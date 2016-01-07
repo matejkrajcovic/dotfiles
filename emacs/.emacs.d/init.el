@@ -53,6 +53,7 @@
   (setq ido-enable-flex-matching t)
   (setq org-completion-use-ido t)
   (use-package ido-ubiquitous
+    :ensure t
     :init (ido-ubiquitous-mode 1)
     )
   )
