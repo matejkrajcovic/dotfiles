@@ -7,4 +7,5 @@ dropbox &
 udiskie --tray &
 pulseaudio --start
 mpd
+workrave &
 exec awesome
