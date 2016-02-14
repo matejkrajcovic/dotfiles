@@ -12,6 +12,9 @@
 (prefer-coding-system 'utf-8)
 (set-language-environment 'utf-8)
 
+(setq-default indent-tabs-mode nil
+              tab-width 4)
+
 ;; Backup files settings
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
@@ -23,7 +26,7 @@
 ;; Package manager setup
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			("melpa" . "https://melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap 'use-package'
@@ -104,6 +107,8 @@
   :ensure t
   :defer t
   :init (global-flycheck-mode)
+  :config
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
   )
 
 (use-package web-mode
@@ -116,6 +121,7 @@
   (setq web-mode-enable-auto-pairing t)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
   )
 
 (use-package company
