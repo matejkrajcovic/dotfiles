@@ -197,3 +197,15 @@
      smtpmail-queue-dir (concat mu4e-maildir "/mu4e-queue"))
     )
   )
+
+(use-package magit
+  :ensure t
+  :defer t
+  )
+
+(use-package eww
+  :bind ("C-x e" . eww)
+  :config
+  (setq browse-url-browser-function 'eww-browse-url)
+  (setq eww-download-callback "Inbox")
+  )
