@@ -58,6 +58,22 @@
     )
   )
 
+(setq open-extensions
+      '(("webm" . "mpv")
+        ("avi" . "mpv")
+        ("mp4" . "mpv")
+        ("mkv" . "mpv")
+        ("ogv" . "mpv")
+        ("png" . "nomacs")
+        ("jpeg" . "nomacs")
+        ("jpg" . "nomacs")
+        ("pdf" . "zathura")
+        ("ods" . "libreoffice")
+        ("odt" . "libreoffice")
+        ("mobi" . "ebook-viewer")
+        ("epub" . "ebook-viewer")
+        ("maff" . "firefox")))
+
 (use-package dired
   :bind ("C-x d" . dired)
   :config
@@ -65,21 +81,13 @@
   (put 'dired-do-rename 'ido 'find-file)
   (put 'dired-do-move 'ido 'find-file)
   (put 'dired-do-copy 'ido 'find-file)
+  (use-package dired-narrow
+    :ensure t
+    )
   (use-package dired-open
     :ensure t
     :config
-    (setq dired-open-extensions
-          '(("webm" . "mpv")
-            ("avi" . "mpv")
-            ("mp4" . "mpv")
-            ("mkv" . "mpv")
-            ("ogv" . "mpv")
-            ("png" . "nomacs")
-            ("jpeg" . "nomacs")
-            ("jpg" . "nomacs")
-            ("pdf" . "zathura")
-            ("mobi" . "ebook-viewer")
-            ("epub" . "ebook-viewer")))
+    (setq dired-open-extensions open-extensions)
     )
   )
 
@@ -155,6 +163,7 @@
         '(("maybe.org" :maxlevel . 1)
           ("gtd.org" :maxlevel . 1)
           ))
+  (setq org-file-apps open-extensions)
   )
 
 (use-package mu4e
