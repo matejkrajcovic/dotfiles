@@ -145,6 +145,7 @@
   ("C-c C-x RET g" . org-mobile-pull)
   ("C-c C-x RET p" . org-mobile-push)
   :config
+  (setq org-startup-truncated nil) ;; wrap lines
   (setq org-todo-keywords '("TODO" "NEXT" "STARTED" "|" "DONE" "WAITING"))
   (setq calendar-week-start-day 1)
   (setq org-agenda-files '("~/Sync/org/gtd.org")
@@ -164,7 +165,9 @@
   (setq org-default-notes-file (concat org-directory "inbox.org")
         org-capture-templates
         '(("i" "Inbox" entry (file "~/org/inbox.org")
-           "* TODO %?\n  %T\n  %i")))
+           "* TODO %?\n  %T\n  %i")
+          ("m" "Mail" entry (file "~/org/inbox.org")
+           "* TODO %? :mail:\n  %T\n%a")))
   (setq org-refile-targets
         '(("maybe.org" :maxlevel . 1)
           ("gtd.org" :maxlevel . 1)
@@ -196,6 +199,12 @@
   (use-package mu4e-contrib
     :config
     (setq mu4e-html2text-command 'mu4e-shr2text)
+    )
+  (use-package org-mu4e
+    :config
+    (setq org-mu4e-convert-to-html t)
+    (add-hook 'mu4e-compose-mode-hook #'org~mu4e-mime-switch-headers-or-body) ;; turn org mode editing in compose mode
+    (setq org-mu4e-link-query-in-headers-mode nil) ;; store link to message if in header view, not to header query
     )
   (use-package smtpmail
     :config
