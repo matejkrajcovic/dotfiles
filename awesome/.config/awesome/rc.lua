@@ -272,6 +272,7 @@ globalkeys = awful.util.table.join(
    awful.key({ "Mod1",           }, "Shift_L", function () kbdcfg.switch() end),
    awful.key({ modkey,           }, "b",       function () awful.util.spawn("firefox") end),
    awful.key({ modkey,           }, "e",       function () awful.util.spawn("emacs") end),
+   awful.key({ modkey,           }, "l",       function () awful.util.spawn("i3lock") end),
    awful.key({ modkey,           }, "Left",    awful.tag.viewprev       ),
    awful.key({ modkey,           }, "Right",   awful.tag.viewnext       ),
    awful.key({ modkey,           }, "Escape",  awful.tag.history.restore),

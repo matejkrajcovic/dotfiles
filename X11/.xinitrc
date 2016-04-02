@@ -8,4 +8,5 @@ udiskie --tray &
 pulseaudio --start
 mpd
 workrave &
+xss-lock -- i3lock -n &
 exec awesome
