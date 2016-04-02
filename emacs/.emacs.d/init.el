@@ -122,6 +122,8 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.js[x]?\\'")))
   )
 
 (use-package company
@@ -223,6 +225,7 @@
   )
 
 (use-package magit
+  :bind ("C-x g" . magit-status)
   :ensure t
   :defer t
   )
@@ -232,4 +235,21 @@
   :config
   (setq browse-url-browser-function 'eww-browse-url)
   (setq eww-download-callback "Inbox")
+  )
+
+(use-package haskell-mode
+  :ensure t
+  :mode ("\\.hs\\'" . haskell-mode)
+  )
+
+(use-package ledger-mode
+  :ensure t
+  )
+
+(use-package neotree
+  :ensure t
+  :defer t
+  :bind ("<f1>" . neotree-toggle)
+  :config
+  (setq neo-smart-open t)
   )
